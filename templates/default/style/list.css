@@ -1,0 +1,130 @@
+﻿#content {background:url("../images/T1S4veXXtXXXcKi4fo_80_80.png") repeat center!important;width:100%!important;}
+#mallNav {
+	margin-bottom:0;
+}
+
+/*left*/
+.list_left{ float: left; width:200px; overflow:hidden; display:inline}
+.list_left h3 {
+	color:#FFF;
+	border: 1px #bf0000 solid;
+	font-size: 14px;
+	padding-left: 10px;
+	height: 30px;
+	line-height: 30px;
+	margin:0px;
+	background-color: #bf0000;
+}
+.sideCategory {
+	overflow:hidden;
+	border: 1px #bf0000 solid;
+	background-color:#F2F2F2;
+	background-image: url(../images/line1.png);
+	background-repeat: repeat;
+	background-position: center top;
+}
+.sideCategory li {
+	color:#FFFFFF;
+	overflow:hidden;
+	padding-left:18px;
+	line-height:34px;
+	text-align: center;
+	background-image: url(../images/sidebar_dot1.png);
+	background-repeat: no-repeat;
+	background-position: 20px 14px;
+}
+.sideCategory li a {color:#000000; white-space:nowrap;}
+.sideCategory li a.cur,.sideCategory li a:hover{color:#000000;}
+
+/*main*/
+.main {
+	width:1020px;
+	overflow:hidden;
+	display:inline;
+	float:right;
+	margin-left: 5px;
+}
+.condition {overflow:hidden;border:1px #E5E8ED solid;margin-bottom:10px;}
+.condition ul{ margin:0; padding:0; list-style:none}
+.condition ul li {border-top:1px #f2f2f2 solid;padding:5px 10px;line-height:26px;}
+.condition ul li label {color:#797979;float:left; width:70px; overflow: hidden; display:inline;word-wrap:break-word;word-break:break-all; font-weight:bold}
+.condition ul li .ly_list {overflow:hidden;float:left; display:inline; padding-left:10px; width:720px; }
+.condition ul li .ly_list img{ vertical-align:middle}
+.condition ul li a {margin-right:10px; outline:none; white-space:nowrap;display:inline; color:#000000}
+.condition ul li a.onbg{ background-color: #930; color:#FFFFFF; padding:1px}
+
+/*goods list*/
+.pptm-right-sale .sale-list {
+	width:1020px;
+	padding-top:5px;
+	border-top:1px solid #A8A8AA;
+}
+.pptm-right-sale .sale-list li {
+	float:left;
+	margin:5px;
+	display:inline;
+	position:relative;
+	border:1px solid #DFDFDF;
+	padding:6px;
+	text-align:center;
+	width:230px;
+	height:280px;
+	overflow:hidden;
+	background-color: #f1f1f1;
+}
+.pptm-right-sale .sale-list li.bd{
+	border:1px solid #bf0000;
+	background-color: #FFFFFF;
+}
+.pptm-right-sale .sale-list .pro {
+	display:block;
+	width:230px;
+	height:230px;
+	overflow:hidden;
+}
+.pptm-right-sale .sale-list .desc {
+	width:230px;
+	overflow:hidden;
+	color:#000000;
+}
+.pptm-right-sale .sale-list .volume {
+	background:transparent\9;
+	background:transparent\9;
+filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#C887715a, endcolorstr=#C887715a);
+*zoom:1;
+	width:230px;
+	height:23px;
+	overflow:hidden;
+	position:absolute;
+	top:218px;
+	left:6px;
+	color:#FFF
+}
+.pptm-right-sale .sale-list .price{
+	line-height:23px;
+	width:230px;
+	height:23px;
+	overflow:hidden;
+	padding-left:0px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	color:#000000;
+	text-decoration:none;
+	display:block;
+	margin-top:5px
+}
+.pptm-right-sale .sale-list .price .h{ color:#F00; font-weight:bold}
+.pptm-right-sale .sale-list .price .lt{ text-decoration:line-through}
+.pptm-right-sale .sale-list .info {
+	line-height:23px;
+	width:230px;
+	height:23px;
+	overflow:hidden;
+	padding-left:0px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	color:#000000;
+	text-decoration:none;
+	display:block;
+}
+.ads{ margin-top:5px;}

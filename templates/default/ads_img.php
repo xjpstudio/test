@@ -1,0 +1,1 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?><a href="<?php echo en_url($ads->hplink);?>" target="_blank" title="<?php echo $ads->title;?>"><img src="<?php echo get_real_path($ads->file_path);?>" width="<?php echo $ads->width;?>" height="<?php echo $ads->height;?>" /></a>

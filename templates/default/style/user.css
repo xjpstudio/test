@@ -1,0 +1,22 @@
+@charset "utf-8";
+.login_left{width:45%; overflow:hidden; float:left; color:#777; border-right:1px solid #ddd;}
+.login_right{width:50%; overflow:hidden; float:right; color:#777; line-height:30px}
+.login_left h2{font-family:"微软雅黑","黑体";font-size:22px; color:#ba1c29; font-weight:normal;height:auto;}
+.login_right h2{font-family:"微软雅黑","黑体";font-size:22px; color:#ba1c29; font-weight:normal;height:auto;}
+.btn3{ width:89px; height:28px; line-height:28px; text-align:center; color:#fff; cursor:pointer; border:0 none; font-size:14px; font-weight:bold; background:url(../images/btnbg3.gif) left top no-repeat;}
+.btn4{ width:89px; height:28px; line-height:28px; text-align:center; color:#fff; cursor:pointer; border:0 none; font-size:14px; font-weight:bold; background:url(../images/btnbg4.gif) left top no-repeat;}
+.ui-tx-input {border:1px solid #ccc;padding:1px 3px;border-top-color:#777;border-left-color:#777;}
+.user_top_nav{ height:48px; width:100%; border-bottom:1px solid #DCDCDC; line-height:48px; vertical-align:middle; margin-top:10px}
+.user_top_nav img{ vertical-align:middle}
+.user_top_nav a{ font-size:18px;font-family:"微软雅黑","黑体"; text-decoration:none}
+.user_top_nav a:hover{ font-size:18px;font-family:"微软雅黑","黑体"; color:#C30; text-decoration:none}
+.user_top_nav div.user_nav_cur{ background:url(../images/user_arrow.jpg) no-repeat center 40px; height:49px;}
+.user_profile{height:48px;line-height:48px; vertical-align:middle; text-align:center; width:300px; float: left; display: inline;}
+.user_comment{height:48px;line-height:48px; vertical-align:middle; text-align:center; width:300px; float: left; display: inline;}
+.user_logout{height:48px;line-height:48px; vertical-align:middle; text-align:center; width:300px; float: left; display: inline;}
+.user_main{ margin:20px 0; height:300px}
+
+.ui-tx-tips-div{background:#FFFBF2;border:1px solid #F4DDBE; padding:10px; margin:10px 0; line-height:25px; color:#FF0000; text-align:left}
+.ui-tx-tips-div a{ color: #990000}
+.ui-tx-tips-div img{ vertical-align:middle}
+.add_love{ width:91px; height:44px; overflow:hidden; padding-top:22px; background:url(../images/love.png) no-repeat 0 0; color:#FF6598; cursor:pointer; float:left; text-align: center; margin-right:2px}

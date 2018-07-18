@@ -1,0 +1,175 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
+<?php $this->load->view(TPL_FOLDER."header");?>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" >
+  <tr>
+    <td width="3%" align="left" ><img src="{tpl_path}images/forward.jpg" /></td>
+    <td width="97%" align="left" >您现在的位置：<a href="<?php echo $url;?>">商品列表</a> &gt; 修改商品 </td>
+  </tr>
+</table>
+<fieldset>
+<legend>修改商品</legend>
+<form action="<?php echo site_url(CTL_FOLDER."product/save_sell_edit");?>" method="post" enctype="multipart/form-data">
+<div class="ui-tx-block-title">1、商品基本信息</div>
+  <table width="100%"  border="0" cellpadding="3" cellspacing="0" >
+  <tr>
+      <td width="16%" valign="top"><font color="#FF0000">*</font>商品ID：</td>
+      <td width="84%"><input name="num_iid" id="num_iid" type="text" size="20" maxlength="20" dataType="Custom" msg="ID格式有误" regexp="^[1-9]+\d*$" value="<?php echo $product->num_iid;?>" /> <br>
+      例如：http://detail.tmall.com/item.htm?id=37497291598 链接中的<font color="#FF0000">37497291598</font> 就是商品ID
+      </td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><font color="#FF0000">*</font>商品标题：</td>
+      <td width="84%"><input name="title" type="text" size="80" maxlength="100" dataType="Require" msg="该项必须填写" value="<?php echo $product->title;?>" /></td>
+    </tr>
+    <tr>
+      <td valign="top"><font color="#FF0000">*</font>商品链接：</td>
+      <td><input name="click_url" type="text" size="80" datatype="Require" msg="该项必须填写" value="<?php echo $product->click_url;?>" /> <br>请填写淘宝或天猫商品详细页地址，例如：http://detail.tmall.com/item.htm?id=37497291598</td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><font color="#FF0000">*</font>零售价(￥)：</td>
+      <td width="84%"><input name="shop_price" type="text" size="10" maxlength="10" dataType="Currency" msg="价格格式有误" value="<?php echo $product->shop_price;?>" /></td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top"><font color="#FF0000">*</font>折扣价(￥)：</td>
+      <td width="84%"><input name="dc_price" type="text" size="10" maxlength="10" dataType="Currency" msg="价格格式有误" value="<?php echo $product->dc_price;?>" /> <font color="#FF0000">如果没有折扣价，请填写数字0</font></td>
+    </tr>
+    <tr>
+          <td><font color="#FF0000">*</font>销量：</td>
+          <td><input name="volume" type="text" size="10" value="<?php echo $product->volume;?>" maxlength="10" dataType="Int" msg="销量格式有误" /></td>
+        </tr>
+        <tr>
+          <td><font color="#FF0000">*</font>喜欢数量：</td>
+          <td><input name="love" type="text" size="10" maxlength="10" value="<?php echo $product->love;?>" dataType="Int" msg="喜欢数量格式有误" /></td>
+        </tr>
+        <tr>
+      <td width="16%" valign="top">掌柜昵称：</td>
+      <td width="84%"><input name="nick" type="text" size="30" maxlength="100"  value="<?php echo $product->nick;?>" />  <a href="http://bbs.soke5.com/thread-27-1-1.html" target="_blank" style="color:#06F">查看掌柜昵称获取教程</a></td>
+    </tr>
+    <tr>
+      <td valign="top"><font color="#FF0000">*</font>商品图片：</td>
+      <td><img rel="<?php echo get_real_path($product->small_pic_path);?>" border="0" class="jq_pic_loading" /><br />
+        <input type="text" name="pic_path" id="pic_path" size="25" maxlength="300" value="<?php echo $product->big_pic_path;?>" />
+        <input name="big_pic" type="file" id="big_pic" size="20" dataType="Filter" accept="<?php echo str_replace("|",",",UP_IMAGES_EXT);?>" require="false" msg="图片格式有误" />
+        <input type="button" name="sfbtn" class="button-style2" onclick="GetFileDialog('pic_path')" style="width:120px" value="选择图片" />
+        <br />
+        上传的图片格式必须是：<?php echo UP_IMAGES_EXT;?>
+        <input type="hidden" name="o_small_pic_path" value="<?php echo $product->small_pic_path;?>" />
+        <input type="hidden" name="o_big_pic_path" value="<?php echo $product->big_pic_path;?>" /></td>
+    </tr>
+    <tr>
+      <td valign="top">更多图片：</td>
+      <td><fieldset>
+          <legend>已上传的图片</legend>
+          <div class="more_upload_pic">
+            <ul>
+              <?php foreach($pic as $row) {?>
+              <li><img rel="<?php echo get_real_path($row->pic_path);?>" border="0" class="jq_pic_loading" /><img src="{tpl_path}images/no.gif" title="删除" onclick="ajax_del_more_pic(this,<?php echo $row->id;?>)"  style="cursor:pointer; position:absolute; top:0px; right:0px" /></li>
+              <?php }?>
+            </ul>
+          </div>
+        </fieldset>
+        <div class="up_pic_form">
+      <ul>
+       <li><a href="javascript:extend_upload_input()" title="增加一张图片">[+]</a> <input type="text" name="pic_path1" maxlength="300" size="25" /> <input name="more_pic1" type="file" size="15" dataType="Filter" accept="<?php echo str_replace("|",",",UP_IMAGES_EXT);?>" require="false" msg="图片格式必须是：<?php echo UP_IMAGES_EXT;?>"><input type="hidden" value="1" name="more_pic_id[]" />
+          </li>
+        </ul>
+        </div>
+        </td>
+    </tr>
+    <tr>
+      <td width="16%" valign="top">商品类目： </td>
+      <td width="84%" valign="bottom">
+      <div class="cat_list">
+          <ul>
+            <?php foreach(get_cache('catalog') as $row) {?>
+            <li><?php echo str_repeat("&nbsp;&nbsp;&nbsp;&nbsp;",$row->deep_id);?><label><input type="checkbox" name="catalog_id[]" class="catalog" value="<?php echo trim($row->queue,',');?>" <?php if(strpos($product->catalog_id,','.$row->id.',') !== FALSE) echo "checked";?> /><?php echo $row->cat_name;?></label></li>
+            <?php }?>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">所属店铺：</td>
+      <td><select name="sid">
+          <option value="0">-选择店铺-</option>
+          <?php foreach($shop as $row) {?>
+          <option value="<?php echo $row->id;?>" <?php if($row->id == $product->sid) echo 'selected';?>><?php echo $row->title;?></option>
+          <?php }?>
+        </select></td>
+    </tr>
+    <tr>
+          <td valign="top">网页标题：</td>
+          <td><input name="btitle" type="text" size="50" maxlength="100" value="<?php echo $product->btitle;?>" /> 标签说明：网站标题{site_title}，商品标题{title}</td>
+        </tr>
+    <tr>
+      <td valign="top">meta关键词：</td>
+      <td><input type="text" name="keyword" maxlength="100" size="80" value="<?php echo $product->keyword;?>" /><br>
+        一般不超过100个字符</td>
+    </tr>
+    <tr>
+      <td valign="top">meta描述：</td>
+      <td><textarea name="description" cols="80" rows="3" dataType="Limit" max="200" msg="字数不超过200" require="false"><?php echo $product->description;?></textarea><br>
+        一般不超过200个字符</td>
+    </tr>
+    <tr>
+      <td valign="top"><font color="#FF0000">*</font>排序号：</td>
+      <td><input name="seqorder" type="text" id="seqorder" maxlength="8" size="4" value="<?php echo $product->seqorder;?>" datatype="Integer" msg="该项必须填写数字" /></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="padding-bottom:5px"><div class="ui-tx-block-title">2、商品描述</div>
+       <textarea name="content" id="content" style="width:780px; height:450px;visibility:hidden;"><?php echo htmlspecialchars($product->content);?></textarea></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="button" name="sbmit" onclick="subForm(this.form,this)" value="修改" class="button-style2" />
+        &nbsp;&nbsp;
+        <input type="button" onclick="document.location.href='<?php echo $url;?>'" value="返回" class="button-style2" />
+        <input name="id" type="hidden" value="<?php echo $product->id;?>" />
+        <input name="url" type="hidden" value="<?php echo $url;?>" /></td>
+    </tr>
+  </table>
+</form>
+</fieldset>
+<script language="javascript">
+KindEditor.ready(function(K){
+	editor = K.create('textarea[name="content"]',editor_opt);
+});
+function subForm(f,e)
+{
+	if (!Validator.Validate(f,3)) return false;
+	if(document.getElementById('pic_path').value == '' && document.getElementById('big_pic').value == '')
+	{
+		alert('请上传商品图片');
+		return;
+	}
+	e.value = '数据处理中..';
+	e.disabled = true;
+	editor.sync();
+	f.submit();
+}
+var global_loop=1;
+function extend_upload_input()
+{
+	global_loop+=1;
+	$(".up_pic_form li:last").after('<li><span style="cursor:pointer; color:#FF0000" title="删除" onclick="remove_ob(this)">[-]</span> <input type="text" class="inputstyle" name="pic_path'+global_loop+'" maxlength="300" size="25" /> <input class="inputstyle" name="more_pic'+global_loop+'" type="file" size="15" dataType="Filter" accept="jpg,gif,png,jpeg" require="false" msg="图片格式必须是：jpg|gif|png|jpeg"><input type="hidden" value="'+global_loop+'" name="more_pic_id[]" /></li>');
+}
+function ajax_del_more_pic(ob,id)
+{
+	if(confirm("确定要删除该图片吗"))
+	{
+		show_message('数据处理中，请稍等...',false);
+		$.ajax({
+		 type: "POST",
+		 url: "<?php echo site_url(CTL_FOLDER."ajax/del_more_pic");?>",
+		 data:   "rd_id="+id,
+		 success: function(msg){
+		 	hide_message(); 
+		 	if(msg==1) {
+				remove_ob(ob);
+			}
+		 }
+		}); 
+	}
+}
+</script>
+<?php $this->load->view(TPL_FOLDER."footer");?>
